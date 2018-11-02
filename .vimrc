@@ -109,7 +109,6 @@ set showmatch            " 高亮显示匹配括号
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set hlsearch            " 高亮显示搜索结果
 set incsearch           " 开启实时搜索功能
-set ignorecase          " 搜索时大小写不敏感
 set nowrapscan          " 搜索到文件两端停止
 set incsearch           " 实时搜索
 
@@ -144,7 +143,7 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight' " 目录树美化
 Plugin 'vim-airline/vim-airline'                 " 状态栏美化
 Plugin 'vim-airline/vim-airline-themes'          " 状态栏美化主题
 Plugin 'tpope/vim-commentary'                    " 快速注释
-Plugin 'scrooloose/syntastic'                    " 语法错误提示
+Plugin 'w0rp/ale'                                " 语法错误提示
 Plugin 'Lokaltog/vim-easymotion'                 " 快速跳转
 Plugin 'luochen1990/rainbow'                     " 彩虹括号
 "Plugin 'Raimondi/delimitMate'                   " 括号补全
@@ -161,22 +160,6 @@ if filereadable(expand($HOME . '/.vimrc.airline'))
     source $HOME/.vimrc.airline
 endif
 
-" prepare-code
-let g:prepare_code_plugin_path = expand($HOME . "/.vim/plugged/prepare-code")
-
-" ctags
-set tags+=/usr/include/tags
-set tags+=~/.vim/systags
-set tags+=~/.vim/x86_64-linux-gnu-systags
-
-" tagbar
-let g:tagbar_width = 30
-nnoremap <silent> <leader>t :TagbarToggle<cr>
-inoremap <silent> <leader>t <esc> :TagbarToggle<cr>
-
-" echodoc.vim
-let g:echodoc_enable_at_startup = 1
-
 " rainbow
 let g:rainbow_active = 1
 
@@ -187,3 +170,5 @@ nnoremap <F7> :GundoToggle<CR>
 if filereadable(expand($HOME . '/.vimrc.nerdtree'))
     source $HOME/.vimrc.nerdtree
 endif
+
+colorscheme onedark
